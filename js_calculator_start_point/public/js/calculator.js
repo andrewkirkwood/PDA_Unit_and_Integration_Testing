@@ -60,7 +60,6 @@ Calculator.prototype.operatorClick = function(operator){
   // if the 'equals' button was clicked, clear the previous operator, otherwise
   // record what the previous operator was
   if (operator == '=') {
-    debugger
     // console.log(operator)
     this.previousOperator = null;
   } else {
