@@ -6,7 +6,7 @@ const Calculator = function(){
 }
 
 Calculator.prototype.add = function(number){
-  console.log("inside add function");
+  // console.log("inside add function");
   this.runningTotal = parseFloat(this.previousTotal) + parseFloat(number);
 }
 
@@ -33,7 +33,7 @@ Calculator.prototype.numberClick = function(number){
   }
   // concatenate the clicked number to the running total
   this.runningTotal = parseFloat('' + this.runningTotal + number);
-  console.log(this.runningTotal);
+  // console.log(this.runningTotal);
 }
 
 Calculator.prototype.operatorClick = function(operator){
@@ -61,7 +61,7 @@ Calculator.prototype.operatorClick = function(operator){
   // record what the previous operator was
   if (operator == '=') {
     debugger
-    console.log(operator)
+    // console.log(operator)
     this.previousOperator = null;
   } else {
     this.previousOperator = operator;
