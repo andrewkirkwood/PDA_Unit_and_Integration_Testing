@@ -6,6 +6,7 @@ const Calculator = function(){
 }
 
 Calculator.prototype.add = function(number){
+  console.log("inside add function");
   this.runningTotal = parseFloat(this.previousTotal) + parseFloat(number);
 }
 
@@ -22,7 +23,6 @@ Calculator.prototype.divide = function(number){
 }
 
 Calculator.prototype.numberClick = function(number){
-
   // when a number is clicked, if a previous operation has just been completed,
   // or there is a zero in the running total, clear the running total, and reset
   // the `newTotal` flag
@@ -33,7 +33,7 @@ Calculator.prototype.numberClick = function(number){
   }
   // concatenate the clicked number to the running total
   this.runningTotal = parseFloat('' + this.runningTotal + number);
-
+  console.log(this.runningTotal);
 }
 
 Calculator.prototype.operatorClick = function(operator){
@@ -60,6 +60,8 @@ Calculator.prototype.operatorClick = function(operator){
   // if the 'equals' button was clicked, clear the previous operator, otherwise
   // record what the previous operator was
   if (operator == '=') {
+    debugger
+    console.log(operator)
     this.previousOperator = null;
   } else {
     this.previousOperator = operator;
