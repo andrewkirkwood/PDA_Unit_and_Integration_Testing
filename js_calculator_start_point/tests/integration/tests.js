@@ -45,5 +45,56 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('36')
   })
 
+  it('output display is as expected for positive numbers', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number5')).click();
+    element(by.css('#operator_add ')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_equals ')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('7')
+  })
+
+  it('output display is as expected for negative numbers', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number5')).click();
+    element(by.css('#operator_subtract ')).click();
+    element(by.css('#number7')).click();
+    element(by.css('#operator_equals ')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('-2')
+  })
+
+  it('output display is as expected for decimal numbers', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number5')).click();
+    element(by.css('#operator_divide ')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_equals ')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('2.5')
+  })
+
+  it('output display is as expected for large numbers', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number5')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+
+    element(by.css('#operator_multiply ')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#operator_equals ')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('10000000')
+  })
+
+  it('can divide by zero and get NaN (not a number)', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number5')).click();
+    element(by.css('#operator_divide ')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#operator_equals ')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('undefined')
+  })
 
 });
